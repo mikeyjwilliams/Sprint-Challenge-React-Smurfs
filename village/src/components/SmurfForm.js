@@ -7,7 +7,8 @@ class SmurfForm extends Component {
     this.state = {
       name: '',
       age: '',
-      height: ''
+      height: '',
+      smurfError: ''
     };
   }
 
@@ -20,24 +21,20 @@ class SmurfForm extends Component {
       .then(response => {
         this.props.updateSmurfs(response.data);
       })
-      .catch(err => {
-        console.log(err);
+      .catch(error => {
+        this.setState({ smurfError: error.response.data.Error });
+        this.setState({ name: '', age: '', height: '' });
       });
-
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
-    });
   };
-
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
   render() {
+    const { smurfError } = this.state;
     return (
       <div className="SmurfForm">
+        <h2>{smurfError}</h2>
         <form onSubmit={this.addSmurf}>
           <input
             onChange={this.handleInputChange}
