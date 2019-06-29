@@ -41,8 +41,9 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
   Create, Read, Update, Delete
 
 - [ ] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+      Create -> Post, Update -> Post, Read -> Get, Delete -> Delete
 
-- [ ] Mention three tools we can use to make AJAX requests.
+* [ ] Mention three tools we can use to make AJAX requests.
 
   Axios, fetch, XmlHttpRequest
 
