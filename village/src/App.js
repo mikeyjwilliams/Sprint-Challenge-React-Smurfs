@@ -10,7 +10,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      smurfs: []
+      smurfs: [],
+      smurfError: ''
     };
   }
 
@@ -21,7 +22,7 @@ class App extends Component {
         this.setState({ smurfs: response.data });
       })
       .catch(err => {
-        console.log(err);
+        console.log(err.smurfError.data.error);
       });
   }
 
